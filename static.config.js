@@ -1,12 +1,18 @@
+import { reloadRoutes } from 'react-static/node'
+import jdown from 'jdown'
+import chokidar from 'chokidar'
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+
+chokidar.watch('content').on('all', () => reloadRoutes())
 
 export default {
   getSiteData: () => ({
     title: 'React Static',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const { posts, home, about } = await jdown('content')
     return [
       {
         path: '/',
@@ -23,7 +29,7 @@ export default {
           posts,
         }),
         children: posts.map(post => ({
-          path: `/post/${post.id}`,
+          path: `/post/${post.slug}`,
           component: 'src/containers/Post',
           getData: () => ({
             post,
@@ -53,7 +59,7 @@ export default {
         },
         {
           loader: 'sass-loader',
-          options: { includePaths: ['src/'] },
+          options: { includePaths: ['src/styles/scss'] },
         },
       ]
 

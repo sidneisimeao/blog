@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { withSiteData } from 'react-static'
 //
-import logoImg from '../logo.png'
+import NavWrapper from 'components/nav/NavWrapper';
+import PostsWrapper from 'components/posts/PostsWrapper';
 
 export default withSiteData(() => (
-  <div>
-    <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
-    <img src={logoImg} alt="" style={{ display: 'block', margin: '0 auto' }} />
-  </div>
+  <Fragment>
+     <NavWrapper />
+     <PostsWrapper />
+  </Fragment>
 ))
