@@ -20,7 +20,7 @@ export default {
   }),
   getRoutes: async () => {
     // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    const { posts } = await jdown('content')
+    const { posts } = await jdown('content')   
     return [
       {
         path: '/',
