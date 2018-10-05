@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-static';
 
 const Navigation = () => (
     <aside className="menu">
         <p className="menu-label">
-            <a href="index.html">Home Page</a>
+          <Link to="/">Home</Link>
         </p>
         <p className="menu-label">
-            <a href="about.html">About Page</a>
+           <Link to="/about">Sobre</Link>
         </p>
         <p className="menu-label">
-            <a href="contact.html">Contact Page</a>
-        </p>
+           <Link to="/blog">Blog</Link>
+        </p>       
     </aside>
 );
 

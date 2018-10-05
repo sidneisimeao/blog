@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import "../../../node_modules/bulma/bulma.sass";
 
-/*
+
 $primary-color: #108db8;
 $sans-serif-font: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
   'Lucida Grande', sans-serif;
@@ -34,9 +34,13 @@ body {
       display: inline-block;
     }
   }
+
+  .main-content {
+    margin-top: 40px;
+  }
   
   .content {
     padding: 1rem;
   }
-  */
+ 
   
