@@ -1,14 +1,19 @@
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import { withRouteData, Link } from 'react-static'
 //
-import NavWrapper from 'components/nav/NavWrapper';
-import PostsWrapper from 'components/posts/PostsWrapper';
 
 export default withRouteData(({ posts }) => (
-  <Fragment>
-    
-      <NavWrapper />
-     <PostsWrapper />
-  </Fragment>
+  <div>
+    <h1>It’s blog time.</h1>
+    <br />
+    All Posts:
+    <ul>
+      {posts.map(post => (
+        <li key={post.slug}>
+          <Link to={`/blog/post/${post.slug}/`}>{post.title} {post.category}</Link>
+        </li>
+      ))}
+    </ul>
+  </div>
 ))

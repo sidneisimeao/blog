@@ -1,8 +1,16 @@
+import React from "react";
 import { reloadRoutes } from 'react-static/node'
 import jdown from 'jdown'
 import chokidar from 'chokidar'
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+
+const LoadingContext = React.createContext({
+  loading: false,
+  message: null,
+  showLoading: message => { },
+  hideLoading: () => { }
+})
 
 chokidar.watch('content').on('all', () => reloadRoutes())
 
@@ -12,11 +20,14 @@ export default {
   }),
   getRoutes: async () => {
     // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    const { posts, home, about } = await jdown('content')
+    const { posts } = await jdown('content')
     return [
       {
         path: '/',
         component: 'src/containers/Home',
+        getData: () => ({
+          posts,
+        }),
       },
       {
         path: '/about',

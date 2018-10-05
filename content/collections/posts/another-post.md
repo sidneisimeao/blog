@@ -1,6 +1,7 @@
 ---
 title: Another post
 slug: another-post
+category: Preact
 ---
 
 Colons can be used to align columns.
