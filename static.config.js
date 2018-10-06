@@ -10,8 +10,13 @@ export default {
   Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
     <Html lang="pt-br">
       <Head>
-        <meta charSet="UTF-8" />
+        <meta charSet="UTF-8" />        
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Sidnei Simmon" />
+        <meta name="description" content="Blog de estudos sobre Javascript e React" />
+        <meta name="keywords" content="blog, static, react, javascript, webpack, html5, css3" />
+        <meta name="reply-to" content="sidneisimmon@gmail.com"></meta>
         <title>{"<SidneiSimmon/>"}</title>
       </Head>
       <Body>{children}</Body>
