@@ -7,6 +7,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 chokidar.watch('content').on('all', () => reloadRoutes())
 
 export default {
+  siteRoot: 'https://sidneisimmon.com',
   Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
     <Html lang="pt-br">
       <Head>
