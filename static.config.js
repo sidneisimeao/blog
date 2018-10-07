@@ -114,7 +114,8 @@ export default {
           defaultLoaders.fileLoader,
         ],
       },
-    ]
+    ],
+    config.output.crossOriginLoading = "anonymous"
     return config
   },
 }
