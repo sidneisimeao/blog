@@ -7,8 +7,6 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 chokidar.watch('content').on('all', () => reloadRoutes())
 
 export default {
-  historyApiFallback: true,
-  watchOptions: { aggregateTimeout: 300, poll: 1000 },
   headers: {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
