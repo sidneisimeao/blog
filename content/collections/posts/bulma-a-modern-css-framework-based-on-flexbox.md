@@ -1,7 +1,9 @@
 ---
-title: Another post
-slug: another-post
-category: Preact
+author: Sidnei Simmon
+title: Bulma um framework CSS baseado em flexbox
+slug: bulma-a-modern-css-framework-based-on-flexbox
+category: CSS
+date: 07/10/2018
 ---
 
 Colons can be used to align columns.
