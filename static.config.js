@@ -27,9 +27,13 @@ export default {
       <Body>{children}</Body>
     </Html>
   ),
-  getSiteData: () => ({
-    title: 'React Static',
-  }),
+  getSiteData: async () => {
+    const { posts } = await jdown('content')
+    return ({
+      title: 'React Static',
+      posts: posts
+    });
+  },  
   getRoutes: async () => {
     const { posts } = await jdown('content')
     return [
