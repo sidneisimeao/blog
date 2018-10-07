@@ -11,7 +11,7 @@ export default {
   Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
     <Html lang="pt-br">
       <Head>
-        <meta charSet="UTF-8" />        
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="author" content="Sidnei Simmon" />
@@ -23,11 +23,15 @@ export default {
       <Body>{children}</Body>
     </Html>
   ),
+  devServer: {
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  },
   getSiteData: () => ({
     title: 'React Static',
   }),
   getRoutes: async () => {
-    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
     const { posts } = await jdown('content')
     return [
       {
@@ -96,7 +100,6 @@ export default {
         })
       }
     }
-
     config.module.rules = [
       {
         oneOf: [
