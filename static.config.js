@@ -27,7 +27,10 @@ export default {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
-    }
+    },
+    allowedHosts: [
+      'sidneisimmon.com',
+    ]
   },
   getSiteData: () => ({
     title: 'React Static',
