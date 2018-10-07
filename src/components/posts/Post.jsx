@@ -1,11 +1,13 @@
 import React from 'react';
 import convert from 'htmr';
 
-const Post = ({ author, title, category, date }) => {
+import bulma from "images/bulma-logo.png";
+
+const Post = ({ author, title, category, date, contents }) => {  
     return (
         <div className="post-wrapper">
             <div className="header-content">
-                <img src="http://placehold.it/900x200" />
+                <img src={bulma} />
                 <h1 className="title is-4">
                     {title}
                 </h1>
@@ -14,6 +16,7 @@ const Post = ({ author, title, category, date }) => {
             <a href="category.html"> {author}</a></i></small>
             </div>
             <div className="content">
+            {convert(contents)}
             </div>
         </div>
     )

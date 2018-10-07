@@ -8556,7 +8556,7 @@ react-stand-in@^4.0.0-beta.21:
   dependencies:
     shallowequal "^1.0.2"
 
-react-static@^5:
+react-static@^5.9.7:
   version "5.9.12"
   resolved "https://registry.yarnpkg.com/react-static/-/react-static-5.9.12.tgz#4dd5e24b9fa53531c2ccbe966c4223f8b6d0d1bc"
   integrity sha512-JoK39FMWkF8rtA80R5hx3a50r1WNOIaOoabJgrW4Xs+sCyuldhytiS2SGpk3Q0xrfQrRb4hDrqKBULneNDRThA==

@@ -1,13 +1,19 @@
+
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
-import convert from 'htmr'
+//
 
-export default withRouteData(({ post }) => {  
-  return (
+export default withRouteData(({ posts }) => (
   <div>
-    <Link to="/blog/">{'<'} Back</Link>
+    <h1>It’s blog time.</h1>
     <br />
-    <h3>{post.title}</h3>
-    {convert(post.contents)}
+    All Posts:
+    <ul>
+      {posts.map(post => (
+        <li key={post.slug}>
+          <Link to={`/blog/post/${post.slug}/`}>{post.title} {post.category}</Link>
+        </li>
+      ))}
+    </ul>
   </div>
-)})
+))

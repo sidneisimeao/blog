@@ -36,31 +36,13 @@ export default {
   },  
   getRoutes: async () => {
     const { posts } = await jdown('content')
-    return [
-      {
-        path: '/',
-        component: 'src/containers/Home',
-        getData: () => ({
-          posts,
-        }),
-      },
-      {
-        path: '/about',
-        component: 'src/containers/About',
-      },
+    return [     
       {
         path: '/blog',
         component: 'src/containers/Blog',
         getData: () => ({
           posts,
-        }),
-        children: posts.map(post => ({
-          path: `/post/${post.slug}`,
-          component: 'src/containers/Post',
-          getData: () => ({
-            post,
-          }),
-        })),
+        })
       },
       {
         is404: true,
@@ -88,7 +70,6 @@ export default {
           options: { includePaths: ['src/styles/scss'] },
         },
       ]
-
       // Don't extract css to file during node build process
       if (stage !== 'node') {
         loaders = ExtractTextPlugin.extract({
@@ -103,7 +84,6 @@ export default {
         })
       }
     }
-
     config.module.rules = [
       {
         oneOf: [
@@ -117,6 +97,11 @@ export default {
         ],
       },
     ]
+    if (stage === 'prod') {
+      config.entry = ['babel-polyfill', config.entry]
+    } else if (stage === 'dev') {
+      config.entry = ['babel-polyfill', ...config.entry]
+    }
     return config
   },
 }
