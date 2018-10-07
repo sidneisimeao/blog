@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react'
-import { withRouteData } from 'react-static'
-//
-import NavWrapper from 'components/nav/NavWrapper';
-import PostsWrapper from 'components/posts/PostsWrapper';
 
-export default withRouteData(({ posts }) => (
+import NavWrapper from 'components/nav/NavWrapper';
+import Posts from 'components/posts/Posts';
+
+export default () => (
   <Fragment>
      <NavWrapper />
-     <PostsWrapper />
+     <Posts />
   </Fragment>
-))
+);

@@ -2,15 +2,15 @@ import React from 'react';
 
 import Post from 'components/posts/Post';
 
-import AppContext from "AppContext";
+import { Consumer } from "AppContext";
 
-const PostsWrapper = () => (
+const Posts = () => (
     <div className="column is-centered is-full-mobile">
-        <AppContext.Consumer>
+        <Consumer>
             {context => console.log(context)}
-        </AppContext.Consumer>
+        </Consumer>
         <Post />
     </div>
 );
 
-export default PostsWrapper;
+export default Posts;
