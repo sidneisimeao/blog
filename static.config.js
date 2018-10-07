@@ -7,13 +7,14 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 chokidar.watch('content').on('all', () => reloadRoutes())
 
 export default {
-  compilation: {    
-    web: {      
-       crossOriginLoading: 'anonymous', // output.crossOriginLoading
-    },
+  historyApiFallback: true,
+  watchOptions: { aggregateTimeout: 300, poll: 1000 },
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
   },
-  siteRoot: 'https://sidneisimmon.com',
-  Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
+   Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
     <Html lang="pt-br">
       <Head>
         <meta charSet="UTF-8" />        
