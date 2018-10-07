@@ -7,11 +7,16 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 chokidar.watch('content').on('all', () => reloadRoutes())
 
 export default {
+  compilation: {    
+    web: {      
+       crossOriginLoading: 'anonymous', // output.crossOriginLoading
+    },
+  },
   siteRoot: 'https://sidneisimmon.com',
   Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
     <Html lang="pt-br">
       <Head>
-        <meta charSet="UTF-8" />
+        <meta charSet="UTF-8" />        
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="author" content="Sidnei Simmon" />
@@ -23,13 +28,6 @@ export default {
       <Body>{children}</Body>
     </Html>
   ),
-  devServer: {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
-},
   getSiteData: () => ({
     title: 'React Static',
   }),
@@ -102,6 +100,7 @@ export default {
         })
       }
     }
+
     config.module.rules = [
       {
         oneOf: [
@@ -114,8 +113,7 @@ export default {
           defaultLoaders.fileLoader,
         ],
       },
-    ],
-    config.output.crossOriginLoading = "anonymous"
+    ]
     return config
   },
 }
